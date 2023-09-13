@@ -1,0 +1,34 @@
+<div class="wrapper">
+  <div *ngIf="!loading" class="body"><!-- loading es falsa -->
+    <img class="logo" src="../../../assets/img/User.png" alt="img User">
+    <h1 class="titulo">Registrar Usuario</h1>
+
+    <mat-form-field [style.width.px]=250 class="campo">
+      <mat-label>Usuario</mat-label>
+      <input matInput [(ngModel)]="Usuario">
+    </mat-form-field>
+
+<br>
+    <mat-form-field [style.width.px]=250 class="mt-2">
+      <mat-label>Contraseña</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="Password">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+    <br>
+    <mat-form-field [style.width.px]=250 class="mt-2">
+      <mat-label>Repetir Contraseña</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="ConfirmPassword">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+<br>
+    <button mat-raised-button color="primary"[style.width.px]=250  (click)="addUser()" >Entrar</button>
+
+    <p class="parrafo"> <a routerLink="/Login">Volver</a></p>
+  </div>
+
+<app-spinner *ngIf="loading"></app-spinner><!--cuando el loading es verdadera-->
+</div>

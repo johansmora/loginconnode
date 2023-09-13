@@ -1,0 +1,28 @@
+<div class="wrapper">
+  <div class="body" *ngIf="!loading">
+    <img class="logo" src="../../../assets/img/User.png" alt="img User" width="50%">
+    <H1 class="titulo">Inicio de Sesion</H1>
+
+    <mat-form-field [style.width.%]=100 >
+      <mat-label>Usuario</mat-label>
+      <input matInput [(ngModel)]="Usuario">
+    </mat-form-field>
+
+<br>
+    <mat-form-field [style.width.%]=100>
+      <mat-label>Contraseña</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="Password">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+    <br>
+
+    <button mat-flat-button color="primary" [style.width.%]=100 [style.height.px]=50 (click)="login()">Ingresar</button>
+
+    <p class="mt-2">No tienes cuenta <a routerLink="/Siging">registrate aqui</a></p>
+  </div>
+<app-spinner *ngIf="loading"></app-spinner>
+
+</div>
+
